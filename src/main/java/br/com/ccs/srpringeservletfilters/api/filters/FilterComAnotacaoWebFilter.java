@@ -31,7 +31,6 @@ public class FilterComAnotacaoWebFilter implements Filter {
     }
 
     private static String getParameters(HttpServletRequest request) {
-        Map<String, String[]> parameterMap = request.getParameterMap();
         StringBuilder strLogParameters = new StringBuilder();
 
         request.getParameterNames().asIterator().forEachRemaining(parameterName -> {
