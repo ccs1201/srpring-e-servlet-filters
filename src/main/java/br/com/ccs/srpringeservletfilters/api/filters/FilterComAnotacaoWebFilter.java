@@ -34,12 +34,10 @@ public class FilterComAnotacaoWebFilter implements Filter {
         Map<String, String[]> parameterMap = request.getParameterMap();
         StringBuilder strLogParameters = new StringBuilder();
 
-        for (Map.Entry<String, String[]> entry : parameterMap.entrySet()) {
-            String parameterName = entry.getKey();
+        request.getParameterNames().asIterator().forEachRemaining(parameterName -> {
             String parameterValue = request.getParameter(parameterName);
-
             strLogParameters.append("\nparameter -> ").append(parameterName).append(" value -> ").append(parameterValue);
-        }
+        });
 
         return strLogParameters.toString();
     }
